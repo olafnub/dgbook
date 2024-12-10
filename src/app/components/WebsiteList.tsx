@@ -14,7 +14,7 @@ const WebsiteList = () => {
   const [websiteList, setWebsteList] = useState<UserLinkInput[]>([]);
 
   useEffect(() => {
-    
+
     const defaultWebsiteList = [
       { url: "https://www.google.com", nickname: "test w/ google"},
       { url: "https://olafnub.vercel.app/chains", nickname: "test blog"},
@@ -22,13 +22,14 @@ const WebsiteList = () => {
 
     if (typeof window !== "undefined" && window.localStorage) {
         const localData = localStorage.getItem('userData');
-        if (localData && localData.length == 0) {
+        if (localData && localData.length > 2) {
           setWebsteList(JSON.parse(localData));
         } else {
           setWebsteList(defaultWebsiteList);
         }
     }
   }, []);
+  
 
   // render local websites & changes
   // take added websites for AddWebsiteForm
