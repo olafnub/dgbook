@@ -33,6 +33,7 @@ const AddWebsiteForm = () => {
         if (typeof window !== "undefined" && window.localStorage) {
             userData.push({ url: localUrl, nickname: localNickName});
             localStorage.setItem('userData', JSON.stringify(userData));
+            alert("Added! Refresh the site to see all changes");
         } else {
             alert("Couldn't add ;( a bug from our side -- please submit request! ");
             console.log("Error in adding data");

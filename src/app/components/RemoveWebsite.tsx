@@ -35,7 +35,8 @@ const RemoveWebsite = () => {
                     }
                 }
             })
-            updateLocalStorage()
+            alert("Removed, Refresh the site to see all changes");
+            updateLocalStorage();
         }
     }
 
