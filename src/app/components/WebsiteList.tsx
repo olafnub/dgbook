@@ -11,14 +11,15 @@ interface UserLinkInput {
 
 const WebsiteList = () => {
 
-  const defaultWebsiteList = [
-    { url: "https://www.google.com", nickname: "test w/ google"},
-    { url: "https://olafnub.vercel.app/chains", nickname: "test blog"},
-  ]
-
   const [websiteList, setWebsteList] = useState<UserLinkInput[]>([]);
 
   useEffect(() => {
+    
+    const defaultWebsiteList = [
+      { url: "https://www.google.com", nickname: "test w/ google"},
+      { url: "https://olafnub.vercel.app/chains", nickname: "test blog"},
+    ]
+
     if (typeof window !== "undefined" && window.localStorage) {
         const localData = localStorage.getItem('userData');
         if (localData && localData.length == 0) {
