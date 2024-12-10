@@ -3,6 +3,7 @@ import React, {} from "react"
 import AddWebsiteForm from "./components/AddWebsiteForm";
 import WebsiteList from "./components/WebsiteList";
 import RemoveWebsite from "./components/RemoveWebsite";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   // fetch all data
@@ -21,6 +22,7 @@ export default function Home() {
         <AddWebsiteForm />
         <RemoveWebsite />
       </div>
+      <Analytics />
     </section>
   );
 }
