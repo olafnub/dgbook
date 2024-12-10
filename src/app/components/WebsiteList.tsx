@@ -20,7 +20,7 @@ const WebsiteList = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
-        let localData = localStorage.getItem('userData');
+        const localData = localStorage.getItem('userData');
         if (localData && localData.length == 0) {
           setWebsteList(JSON.parse(localData));
         } else {
@@ -40,7 +40,7 @@ const WebsiteList = () => {
 
   const getLinkIcon = (url: string) => {
     let output;
-    let splitUrl = url.split("/");
+    const splitUrl = url.split("/");
     if (splitUrl.length > 2) {
       output = `https://icons.duckduckgo.com/ip3/${splitUrl[2]}.ico`;
     } else {

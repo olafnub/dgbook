@@ -14,7 +14,7 @@ const AddWebsiteForm = () => {
 
     useEffect(() => {
         if (typeof window != "undefined" && window.localStorage) {
-            let localData = localStorage.getItem('userData');
+            const localData = localStorage.getItem('userData');
             if (localData) {
                 setUserData(JSON.parse(localData));
             }
