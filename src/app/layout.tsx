@@ -1,5 +1,10 @@
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import VercelAnalytics from "./components/VercelAnalytics";
+
+export const metadata = {
+  title: "dbbook",
+  description: "a website storage for reducing sidebar cluttering"
+}
 
 export default function RootLayout({
   children,
@@ -10,16 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Analytics beforeSend={(e) => {
-        // if url includes sensitive data, then don't proceed with analytics
-        const url = new URL(e.url);
-        url.searchParams.delete("secret");
-        url.searchParams.delete("private");
-        return {
-          ...e,
-          url: url.toString()
-        }
-      }}/>
+        <VercelAnalytics />
       </body>
     </html>
   );

@@ -47,7 +47,7 @@ const RemoveWebsite = () => {
   return (
     <>
         <input type="text" onChange={handleSetRemoveLink} placeholder="Input remove link" id="remove-link" name="removeLink" className="w-3/4"/>
-        <button className="border border-red-600 w-1/4" onClick={handleRemoveLink}>Remove</button>
+        <button className="border border-red-600 w-1/4 hover:border-white" onClick={handleRemoveLink}>Remove</button>
     </>
   )
 }

@@ -43,8 +43,12 @@ const WebsiteList = () => {
   const getLinkIcon = (url: string) => {
     let output;
     const splitUrl = url.split("/");
-    if (splitUrl.length > 2) {
-      output = `https://icons.duckduckgo.com/ip3/${splitUrl[2]}.ico`;
+    if (splitUrl.length > 2 && splitUrl[2].includes("co")) {
+      if (!splitUrl[2].includes("com")) {
+        output = `https://icons.duckduckgo.com/ip3/${splitUrl[2]}m.ico`; // algorand for example ends with .co instead of .com
+      } else {
+        output = `https://icons.duckduckgo.com/ip3/${splitUrl[2]}.ico`;
+      }
     } else {
       output = "https://static.thenounproject.com/png/4974686-200.png";
     }
@@ -59,7 +63,12 @@ const WebsiteList = () => {
             key={index} 
             className="flex items-center gap-2 bg-slate-300 px-2 py-3 w-56 break-all"
           >
-            <Image width={30} height={30} alt={curr.nickname} src={getLinkIcon((curr.url).toString())} />
+            <Image 
+              width={30} 
+              height={30}
+              alt={curr.nickname} 
+              src={getLinkIcon((curr.url).toString())} 
+            />
             <Link href={curr.url}>{curr.nickname}</Link>
           </li>
         ))}

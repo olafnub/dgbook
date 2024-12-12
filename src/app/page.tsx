@@ -3,6 +3,7 @@ import React, {} from "react"
 import AddWebsiteForm from "./components/AddWebsiteForm";
 import WebsiteList from "./components/WebsiteList";
 import RemoveWebsite from "./components/RemoveWebsite";
+import FeedBack from "./components/FeedBack";
 
 export default function Home() {
   // fetch all data
@@ -20,6 +21,7 @@ export default function Home() {
       <div className="flex-1">
         <AddWebsiteForm />
         <RemoveWebsite />
+        <FeedBack />
       </div>
     </section>
   );
