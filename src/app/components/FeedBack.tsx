@@ -12,12 +12,15 @@ const FeedBack = () => {
         setUserForm(e.target.value);
     }
 
-    const handleFeedBack = async () => {
-        console.log(JSON.stringify(userForm));
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
         try {
             const response = await fetch("/api/contact", {
                 method: 'POST',
-                body: JSON.stringify(userForm),
+                body: formData,
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
@@ -27,6 +30,8 @@ const FeedBack = () => {
         } catch (error) {
             result = { message: `Failed to post: ${error}`}
         }
+
+        return
         
         if (result.status == 200) {
             alert("Sent!");
@@ -40,7 +45,7 @@ const FeedBack = () => {
     }
 
   return (
-    <div className="flex flex-col gap-2">
+    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <label 
             className="text-center" 
             htmlFor="user-feedback"
@@ -51,10 +56,10 @@ const FeedBack = () => {
        {selectForm &&
             <>
                 <textarea onChange={recieveFormChange} id="user-feedback" placeholder="anything is appreciated..."/>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2" onClick={handleFeedBack}>Submit</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2" type="submit">Submit</button>
             </>
         }
-    </div>
+    </form>
   )
 }
 

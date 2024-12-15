@@ -8,6 +8,10 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+
+    // const mailgun = new Mailgun(await req.json());
+
+    return;
     const username = process.env.MAIL_USER;
     const password = process.env.MAIL_PASSWORD;
     const mailHost = process.env.MAIL_HOST;
