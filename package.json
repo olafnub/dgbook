@@ -1,5 +1,5 @@
 {
-  "name": "kjbook",
+  "name": "jkbook",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.17",
     "@vercel/analytics": "^1.4.1",
     "dexie": "^4.0.10",
     "dexie-react-hooks": "^1.1.7",
+    "mailgun.js": "^10.2.4",
+    "mongodb": "^6.12.0",
     "next": "15.0.4",
+    "nodemailer": "^6.9.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

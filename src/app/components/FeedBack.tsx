@@ -1,31 +1,38 @@
 'use client';
 import React, { useState } from 'react';
 
+
 const FeedBack = () => {
     const [selectForm, setSelectForm] = useState(false);
-    const [formData, setFormData] = useState("");
+    const [userForm, setUserForm] = useState<string>("");
 
-    let result;
+    let result
 
     const recieveFormChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setFormData(e.target.value);
+        setUserForm(e.target.value);
     }
 
     const handleFeedBack = async () => {
+        console.log(JSON.stringify(userForm));
         try {
-            let data = await fetch("/api/forms", {
+            const response = await fetch("/api/contact", {
                 method: 'POST',
-                body: JSON.stringify(formData),
+                body: JSON.stringify(userForm),
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 },
             })
-            result = await data.json();
+            result = await response.json();
         } catch (error) {
             result = { message: `Failed to post: ${error}`}
         }
-        console.log(result);
+        
+        if (result.status == 200) {
+            alert("Sent!");
+        } else {
+            alert("Message did not send, please try again later");
+        }
     }
 
     const showForm = () => {
