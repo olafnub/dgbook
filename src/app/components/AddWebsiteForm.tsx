@@ -13,7 +13,7 @@ const AddWebsiteForm = () => {
     const [userData, setUserData] = useState<UserLinkInput[]>([]);
 
     useEffect(() => {
-        if (typeof window != "undefined" && window.localStorage) {
+        if (window.localStorage) {
             const localData = localStorage.getItem('userData');
             if (localData) {
                 setUserData(JSON.parse(localData));
@@ -30,7 +30,7 @@ const AddWebsiteForm = () => {
     }
 
     const pushWebsite = () => {
-        if (typeof window !== "undefined" && window.localStorage) {
+        if (window.localStorage) {
             userData.push({ url: localUrl, nickname: localNickName});
             localStorage.setItem('userData', JSON.stringify(userData));
             alert("Added! Refresh the site to see all changes");

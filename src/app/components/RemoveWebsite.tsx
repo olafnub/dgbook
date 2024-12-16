@@ -12,7 +12,7 @@ const RemoveWebsite = () => {
     }
 
     useEffect(() => {
-        if (typeof window != "undefined" && window.localStorage) {
+        if (window.localStorage) {
             const localData = localStorage.getItem('userData');
             if (localData) {
                 setUserData(JSON.parse(localData));
@@ -25,7 +25,7 @@ const RemoveWebsite = () => {
     }
 
     const handleRemoveLink = () => {
-        if (typeof window !== "undefined" && window.localStorage) {
+        if (window.localStorage) {
             userData.map((curr: UserLinkInput, index: number) => {
                 if (curr.url == removeLink) {
                     if (index == 0) {

@@ -20,7 +20,7 @@ const WebsiteList = () => {
       { url: "https://olafnub.vercel.app/chains", nickname: "test blog"},
     ]
 
-    if (typeof window !== "undefined" && window.localStorage) {
+    if (window.localStorage) {
         const localData = localStorage.getItem('userData');
         if (localData && localData.length > 2) {
           setWebsteList(JSON.parse(localData));
